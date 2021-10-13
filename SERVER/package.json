@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "the backend serfer for the F1nder App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenKaiser12/F1nder.git"
+  },
+  "keywords": [
+    "Formula",
+    "1"
+  ],
+  "author": "Ben Kaiser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenKaiser12/F1nder/issues"
+  },
+  "homepage": "https://github.com/BenKaiser12/F1nder#readme",
+  "dependencies": {
+    "ergast-client": "^0.2.9",
+    "express": "^4.17.1"
+  }
+}
