@@ -1,12 +1,14 @@
 const Driver = require('../models/driver.js');
 
-exports.getAllBySeason = (req, res) => {
-  Driver.getAllBySeason(req.params.season, (err, data) => {
+exports.getAllBySeason = function(req, res) {
+  // console.log(req)
+  Driver.getAllBySeason(req.params.season, (err, drivers) => {
     if (err) {
       res.status(500).send({
-        message: "Error retrieving Tutorial with id " + req.params.id
+        message: "Error retrieving Season: " + req.params.season
       });
     }
-    res.send(data);
+    
+    res.send(drivers);
   })
 }

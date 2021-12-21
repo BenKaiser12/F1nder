@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const sql = require('../db/db.js');
 
 // Constructor
@@ -15,21 +14,15 @@ const Driver = function(driver) {
 }
 
 Driver.getAllBySeason = (season, result) => {
-  sql.query('SELECT driver.* FROM drivers JOIN driverStandings ON driverStandings.driverId = drivers.driverId JOIN races ON races.raceId = driverStandings.raceId AND races.year', [req.params.year], function(err, drivers) {
+  sql.query('SELECT DISTINCT drivers.* FROM drivers JOIN driverStandings ON driverStandings.driverId = drivers.driverId JOIN races ON races.raceId = driverStandings.raceId AND races.year=?', [season], function(err, drivers) {
     if (err) {
       console.log("Error: ", err);
       result(err, null)
-      return;
     }
 
-    if (res.length) {
-      console.log("Found Drivers: ", res);
-      result(null, res)
-      return
-    }
-
-  // not found error
-    result({kind: "not_found"}, null)
+    console.log("Found Drivers: ", drivers);
+    result(null, drivers)
+    
   })
 }
 

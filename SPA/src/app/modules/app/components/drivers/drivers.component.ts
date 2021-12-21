@@ -10,6 +10,7 @@ import { DriversService } from 'src/app/shared/services/drivers.service';
 })
 export class DriversComponent implements OnInit {
   drivers: Driver[] = [];
+  driversColumns = ['number', 'forename', 'surname', 'code', 'dob'];
 
   constructor(public driverService: DriversService) { }
 
